@@ -6,6 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "release:ios": "code-push release-react tcp-ios ios",
+    "release:android": "code-push release-react tcp-android android",
     "test": "jest"
   },
   "dependencies": {
