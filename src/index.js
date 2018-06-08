@@ -7,8 +7,9 @@ import installDevTools from 'immutable-devtools';
 import CodePush from 'react-native-code-push';
 import App from './containers/App';
 import configureStore from './lib/configureStore';
-import { setPlatform, isDev, setCodePush } from './reducers/device/deviceActions';
+import { setPlatform, isDev, setVersion, setCodePush } from './reducers/device/deviceActions';
 import deviceInitialState from './reducers/device/deviceInitialState';
+
 const DEV = __DEV__;
 
 export default function native(platform) {
@@ -36,7 +37,10 @@ export default function native(platform) {
     }
 
     render() {
+      const VERSION = '0.0.1';
+      const BUILD = 1;
       this.store.dispatch(setPlatform(platform));
+      this.store.dispatch(setVersion({ VERSION, BUILD }));
       this.store.dispatch(isDev(DEV));
 
       return (
