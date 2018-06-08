@@ -21,7 +21,7 @@ public class MainApplication extends Application implements ReactApplication {
         protected String getJSBundleFile() {
         return CodePush.getJSBundleFile();
         }
-    
+
     @Override
     public boolean getUseDeveloperSupport() {
       return BuildConfig.DEBUG;
@@ -32,7 +32,10 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new VectorIconsPackage(),
-            new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG)
+            new CodePushBuilder(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey),getApplicationContext())
+                .setIsDebugMode(BuildConfig.DEBUG)
+                .setServerUrl(getResources().getString(R.string.reactNativeCodePush_androidServerURL))
+                .build()
       );
     }
 

@@ -39,7 +39,7 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
@@ -53,6 +53,8 @@
 	</dict>
 	<key>CodePushDeploymentKey</key>
 	<string>NaLYkbsVJOaBkGjfwDGZAhHU7jrP4ksvOXqog</string>
+	<key>CodePushServerURL</key>
+	<string>http://192.168.155.25:3000</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>
