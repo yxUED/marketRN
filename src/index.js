@@ -18,8 +18,8 @@ export default function native(platform) {
   if (DEV) { installDevTools(Immutable); }
   const codePushOptions = {
     // // https://github.com/Microsoft/react-native-code-push.
-    // checkFrequency: CodePush.checkFrequency.ON_APP_RESUME,
-    // installMode: CodePush.InstallMode.ON_NEXT_RESUME
+    checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+    installMode: CodePush.InstallMode.ON_NEXT_RESUME
   };
 
   class MarketRN extends React.Component {
@@ -30,10 +30,10 @@ export default function native(platform) {
       });
     }
     componentDidMount() {
-      // CodePush.getUpdateMetadata(CodePush.UpdateState.RUNNING)
-      //   .then((metaData) => {
-      //     this.store.dispatch(setCodePush(metaData));
-      //   });
+      CodePush.getUpdateMetadata(CodePush.UpdateState.RUNNING)
+        .then((metaData) => {
+          this.store.dispatch(setCodePush(metaData));
+        });
     }
 
     render() {
