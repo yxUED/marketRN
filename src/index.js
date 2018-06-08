@@ -31,7 +31,7 @@ export default function native(platform) {
         <Provider store={this.store}>
           <View style={{ flex: 1 }}>
             <StatusBar
-              backgroundColor="#fe6946"
+              backgroundColor="#2784E2"
               barStyle="light-content"
             />
             <App />

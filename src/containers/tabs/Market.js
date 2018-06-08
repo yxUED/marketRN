@@ -3,31 +3,36 @@ import React, { Component } from 'react';
 import {
   Dimensions,
   StyleSheet,
-  ScrollView,
+  WebView,
   View,
 } from 'react-native';
 import FormatText from '../../components/format-text';
 
+var DEFAULT_URL = "http://192.168.155.26/#/auction/longtimeAuctionList";
+var Screen = Dimensions.get('window');
 class Market extends Component {
   static navigationOptions = {
-    title: '卖场',
+    headerTitle: "卖场"
   }
 
   constructor(props, context) {
     super(props);
     this.state = {
       paused: true,
+      url: DEFAULT_URL
     };
   }
 
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <ScrollView
-        keyboardDismissMode={'interactive'}
-      >
-        <FormatText style={{ color: '#fe6946', fontSize: 15 }}>卖场</FormatText>
-      </ScrollView>
+      <View style = {styles.container}>
+        <WebView
+          style = {styles.webviewWrap}
+          source = {{uri: this.state.url}}
+          javaScriptEnabled = {true} >
+        </WebView>
+      </View>
     );
   }
 }
@@ -51,4 +56,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
+  webviewWrap: {
+    width: Screen.width,
+    height: Screen.height
+  }
 });

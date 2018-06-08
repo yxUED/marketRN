@@ -13,8 +13,14 @@ const App = createStackNavigator({
   navigationOptions: {
     headerBackTitle: '返回',
     headerStyle: {
-      backgroundColor: '#fe6946'
+      backgroundColor: '#2784E2'
     },
+    headerTitleStyle: {
+      color: 'white'
+    },
+    headerBackTitleStyle: {
+      color: 'white'
+    }
   },
 });
 
