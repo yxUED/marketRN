@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">fY3hyt6uyEct4XazZ3dFXdv4twVY4ksvOXqog</string>
     <string name="app_name">marketRN</string>
 </resources>
