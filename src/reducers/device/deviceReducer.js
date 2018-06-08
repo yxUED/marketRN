@@ -2,6 +2,7 @@ import { Record } from 'immutable';
 import InitialState from './deviceInitialState';
 
 const {
+  SET_CODE_PUSH,
   SET_PLATFORM,
   SET_VERSION,
   IS_DEV
@@ -26,6 +27,15 @@ export default function deviceReducer(state = initialState, action) {
     case IS_DEV: {
       const isdev = action.payload;
       return state.set('isdev', isdev);
+    }
+
+    case SET_CODE_PUSH: {
+      const metaData = action.payload;
+      if (metaData) {
+        return state.set('codePush', new (Record(metaData))());
+      } else {
+        break;
+      }
     }
   }
 
