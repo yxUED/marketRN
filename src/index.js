@@ -4,9 +4,10 @@ import { View, YellowBox, StatusBar, AppRegistry } from 'react-native';
 import { Provider } from 'react-redux';
 import Immutable from 'immutable';
 import installDevTools from 'immutable-devtools';
+import CodePush from 'react-native-code-push';
 import App from './containers/App';
 import configureStore from './lib/configureStore';
-import { setPlatform, isDev } from './reducers/device/deviceActions';
+import { setPlatform, isDev, setCodePush } from './reducers/device/deviceActions';
 import deviceInitialState from './reducers/device/deviceInitialState';
 const DEV = __DEV__;
 
@@ -14,13 +15,24 @@ export default function native(platform) {
   YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
   if (DEV) { installDevTools(Immutable); }
+  const codePushOptions = {
+    // // https://github.com/Microsoft/react-native-code-push.
+    // checkFrequency: CodePush.checkFrequency.ON_APP_RESUME,
+    // installMode: CodePush.InstallMode.ON_NEXT_RESUME
+  };
 
-  class marketRN extends React.Component {
+  class MarketRN extends React.Component {
     constructor(props, context) {
       super(props);
       this.store = configureStore({
         device: (new deviceInitialState()).set('isMobile',true)
       });
+    }
+    componentDidMount() {
+      // CodePush.getUpdateMetadata(CodePush.UpdateState.RUNNING)
+      //   .then((metaData) => {
+      //     this.store.dispatch(setCodePush(metaData));
+      //   });
     }
 
     render() {
@@ -40,5 +52,5 @@ export default function native(platform) {
       );
     }
   }
-  AppRegistry.registerComponent('marketRN', () => marketRN);
+  AppRegistry.registerComponent('marketRN', () => (DEV ? MarketRN : CodePush(codePushOptions)(MarketRN)));
 }

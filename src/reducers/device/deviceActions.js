@@ -1,8 +1,16 @@
 const {
+  SET_CODE_PUSH,
   SET_PLATFORM,
   SET_VERSION,
   IS_DEV
 } = require('../../lib/constants').default;
+
+export function setCodePush(metaData) {
+  return {
+    type: SET_CODE_PUSH,
+    payload: metaData
+  };
+}
 
 export function setPlatform(platform) {
   return {
