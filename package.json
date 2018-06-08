@@ -6,8 +6,17 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "copy-apk": "mkdir -p dist/android && cp -f android/app/build/outputs/apk/app-release.apk dist/android",
+    "build:android": "cd android && ./gradlew assembleRelease && npm run copy-apk",
+    "build:ios": "mkdir -p dist/ios && sh sh/build_ios.sh",
     "release:ios": "code-push release-react tcp-ios ios",
     "release:android": "code-push release-react tcp-android android",
+    "bump:build": "sh sh/bump_build.sh",
+    "bump:version": "sh sh/bump_version.sh",
+    "bump:ios:build": "sh sh/bump_ios.sh CFBundleVersion",
+    "bump:ios:version": "sh sh/bump_ios.sh CFBundleShortVersionString",
+    "bump:android:build": "sh sh/bump_android.sh versionCode",
+    "bump:android:version": "sh sh/bump_android.sh versionName",
     "test": "jest"
   },
   "dependencies": {
