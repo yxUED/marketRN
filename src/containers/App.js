@@ -12,6 +12,7 @@ const App = createStackNavigator({
   headerMode: 'screen',
   navigationOptions: {
     headerBackTitle: '返回',
+    title: '主页',
     headerStyle: {
       backgroundColor: '#2784E2'
     },
