@@ -67,4 +67,12 @@ const Tabs = createBottomTabNavigator({
   }
 });
 
+Tabs.navigationOptions = ({navigation}) => {
+  let { routeName } = navigation.state.routes[navigation.state.index];
+  let headerTitle = routeName;
+  return {
+    headerTitle,
+  };
+}
+
 export default Tabs;

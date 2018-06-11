@@ -11,10 +11,6 @@ import FormatText from '../../components/format-text';
 var DEFAULT_URL = "http://192.168.155.26/#/auction/longtimeAuctionList";
 var Screen = Dimensions.get('window');
 class Market extends Component {
-  static navigationOptions = {
-    headerTitle: "卖场"
-  }
-
   constructor(props, context) {
     super(props);
     this.state = {

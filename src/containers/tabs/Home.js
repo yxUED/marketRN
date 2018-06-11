@@ -8,9 +8,6 @@ import {
 } from 'react-native';
 
 class Home extends Component {
-  static navigationOptions = {
-    title: '首页',
-  }
   constructor(props, context) {
     super(props);
   }

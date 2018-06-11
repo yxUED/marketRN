@@ -13,9 +13,6 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import FormatText from '../../components/format-text';
 
 class Account extends Component {
-  static navigationOptions = {
-    title: '我的',
-  }
   constructor(props, context) {
     super(props);
   }
