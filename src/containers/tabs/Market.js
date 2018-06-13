@@ -5,6 +5,8 @@ import {
   StyleSheet,
   WebView,
   View,
+  FlatList,
+  Text,
 } from 'react-native';
 import FormatText from '../../components/format-text';
 
@@ -23,11 +25,10 @@ class Market extends Component {
     const { navigate } = this.props.navigation;
     return (
       <View style = {styles.container}>
-        <WebView
-          style = {styles.webviewWrap}
-          source = {{uri: this.state.url}}
-          javaScriptEnabled = {true} >
-        </WebView>
+        <FlatList
+          data={[{key: 'a'}, {key: 'b'}]}
+          renderItem={({item}) => <Text>{item.key}</Text>}
+        />
       </View>
     );
   }
@@ -49,8 +50,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(Market);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
   },
   webviewWrap: {
     width: Screen.width,

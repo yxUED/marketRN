@@ -70,9 +70,14 @@ const Tabs = createBottomTabNavigator({
   }
 });
 
+const navTitleMap = {
+	Home: '首页',
+	Market: '长时拍',
+	Account: '我的',	
+}
 Tabs.navigationOptions = ({navigation}) => {
   let { routeName } = navigation.state.routes[navigation.state.index];
-  let headerTitle = routeName;
+  let headerTitle = navTitleMap[routeName];
   return {
     headerTitle,
   };
