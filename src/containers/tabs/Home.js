@@ -5,6 +5,7 @@ import {
   View,
   StyleSheet,
   WebView,
+  Text,
 } from 'react-native';
 
 class Home extends Component {
@@ -15,6 +16,7 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container} >
+        <Text>你好杀戮空间</Text>
         <WebView
           ref={(webview) => { this.webview = webview; }}
           style={{
