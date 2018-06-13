@@ -10,28 +10,41 @@ import {
   Alert
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import FormatText from '../../components/format-text';
+import CommonForm from '../../components/common-form';
 
 class Account extends Component {
   constructor(props, context) {
     super(props);
   }
 
+  goPage(page) {
+    this.props.navigation.navigate(page)
+  }
+
   render() {
-    const { navigate } = this.props.navigation;
+    const myFormCfg = {
+      fields: {
+        feedback: {
+          type: 'routeInput',
+          iconSource: '',
+          label: '意见反馈',
+          onNext: this.goPage.bind(this, 'Setting')
+        },
+        setting: {
+          type: 'routeInput',
+          iconSource: '',
+          label: '设置',
+          onNext: this.goPage.bind(this, 'Setting')
+        }
+      }
+    };
 
     return (
       <View style={{ flex: 1 }} >
-        <ScrollView
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollViewContainer}
-          automaticallyAdjustContentInsets={false}
-        >
-          <FormatText style={{ color: '#fe6946', fontSize: 15 }}>我的</FormatText>
-          <Button title="设置"
-              onPress={()=>{ navigate('Setting');}}
-          />
-        </ScrollView>
+        <CommonForm
+          formConfig={myFormCfg}
+          style={{ paddingTop: 15, paddingBottom: 0 }}
+        />
       </View>
     );
   }
