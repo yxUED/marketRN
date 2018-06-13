@@ -13,6 +13,10 @@ class Account extends Component {
   constructor(props, context) {
     super(props);
   }
+  static navigationOptions = ({ navigation, screenProps}) => ({
+     title: "设置",
+    }
+  );
 
   render() {
     const { navigate } = this.props.navigation;
