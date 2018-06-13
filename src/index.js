@@ -32,6 +32,7 @@ export default function native(platform) {
     componentDidMount() {
       CodePush.getUpdateMetadata(CodePush.UpdateState.RUNNING)
         .then((metaData) => {
+          console.log("更新了---"+metaData);
           this.store.dispatch(setCodePush(metaData));
         });
     }

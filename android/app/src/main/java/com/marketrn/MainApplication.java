@@ -14,14 +14,23 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.annotation.Nullable;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
 
         @Override
         protected String getJSBundleFile() {
+//          return super.getJSBundleFile();
         return CodePush.getJSBundleFile();
         }
+
+    @Nullable
+    @Override
+    protected String getBundleAssetName() {
+      return "index.android.jsbundle";
+    }
 
     @Override
     public boolean getUseDeveloperSupport() {
