@@ -44,7 +44,7 @@ const Tabs = createBottomTabNavigator({
 			default:
 		}
     return {
-			tabBarIcon:(focused, tintColor)=>{
+			tabBarIcon: ({ focused, tintColor }) => {
 				return (
 					<Image
 						source={ focused ? tabIconPress : tabIcon }
