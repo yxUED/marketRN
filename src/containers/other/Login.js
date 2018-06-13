@@ -13,7 +13,7 @@ class Account extends Component {
   constructor(props, context) {
     super(props);
   }
-  static navigationOptions = () => ({title: "设置"});
+  static navigationOptions = () => ({title: "登录"});
 
   render() {
     const { navigate } = this.props.navigation;
@@ -25,7 +25,7 @@ class Account extends Component {
           contentContainerStyle={styles.scrollViewContainer}
           automaticallyAdjustContentInsets={false}
         >
-          <FormatText style={{ color: '#fe6946', fontSize: 15 }}>设置</FormatText>
+          <FormatText style={{ color: '#fe6946', fontSize: 15 }}>登录</FormatText>
         </ScrollView>
       </View>
     );

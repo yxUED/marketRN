@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { createStackNavigator } from 'react-navigation';
 import TabRoutes from './tabRoutes';
 
+import Login from '../other/Login';
 import Setting from '../other/Setting';
 
 const AllRoutes = createStackNavigator({
   Tabs: TabRoutes,
+  Login: Login,
   Setting: Setting
 }, {
   mode: 'card',
