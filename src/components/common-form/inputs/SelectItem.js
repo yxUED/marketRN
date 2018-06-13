@@ -5,7 +5,7 @@ import {
   Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Select from 'react-native-default-select';
+import Select from '../../select';
 import _ from 'underscore';
 import stylesheet from '../stylesheet/Input';
 import formatText from '../../format-text';
