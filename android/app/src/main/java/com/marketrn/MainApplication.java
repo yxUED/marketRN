@@ -29,7 +29,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Nullable
     @Override
     protected String getBundleAssetName() {
-      return "index.android.jsbundle";
+      return "index.android.bundle";
     }
 
     @Override

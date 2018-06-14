@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import codePush from 'react-native-code-push';
 import {
   Dimensions,
   View,
   StyleSheet,
   WebView,
   Text,
+  TouchableOpacity,
 } from 'react-native';
 
 class Home extends Component {
@@ -16,7 +18,10 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container} >
-        <Text></Text>
+        <TouchableOpacity onPress={this.onButtonPress}>
+          <Text>Check for updates</Text>
+        </TouchableOpacity>
+        <Text>我又更新了，你更新了吗</Text>
         <WebView
           ref={(webview) => { this.webview = webview; }}
           style={{
@@ -27,6 +32,12 @@ class Home extends Component {
         />
       </View>
     );
+  }
+  onButtonPress() {
+    codePush.sync({
+        updateDialog: true,
+        installMode: codePush.InstallMode.IMMEDIATE
+    });
   }
 }
 
