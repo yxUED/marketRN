@@ -61,6 +61,8 @@ class MarketListItem extends Component {
         </View>
         <View style={styles.rightWarp} >
           <Text>{this.props.item.carName}</Text>
+          <Text>{this.props.item.manufactureDate + '|' + this.props.item.score + '万公里' }</Text>
+          <Text>当前{this.props.item.bidMaxPrice}万元</Text>
         </View>
       </View>
     );
@@ -75,13 +77,20 @@ const styles = StyleSheet.create({
     flex: 1,
     display: 'flex',
     flexDirection: 'row',
+    marginLeft: 12,
+    marginRight: 12,
+    paddingTop: 12,
+    paddingBottom: 12,
+    borderBottomWidth: 1,
+    borderColor: '#f8f8f8',
+    backgroundColor: '#ffffff',
   },
   icon: {
-    width: '100%',
-    height: 100,
+    width: 108,
+    height: 72,
   },
   leftWarp: {
-    width: 100,
+    width: 108,
   },
   rightWarp: {
     flex: 1,

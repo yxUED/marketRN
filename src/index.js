@@ -37,7 +37,7 @@ export default function native(platform) {
     }
 
     render() {
-      const VERSION = '0.0.4';
+      const VERSION = '0.0.6';
       const BUILD = 4;
       this.store.dispatch(setPlatform(platform));
       this.store.dispatch(setVersion({ VERSION, BUILD }));

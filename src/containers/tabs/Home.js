@@ -22,6 +22,11 @@ class Home extends Component {
           <Text>Check for updates</Text>
         </TouchableOpacity>
         <Text>我又更新了，你更新了吗</Text>
+        <Text>wo shi wang di</Text>
+        <Text>wo shi wang di</Text>
+        <Text>wo shi wang di</Text>
+        <Text>wo shi wang di</Text>
+        <Text>fsfasfdasfdsfasf去西藏堙西大坨村f</Text>
         <WebView
           ref={(webview) => { this.webview = webview; }}
           style={{
