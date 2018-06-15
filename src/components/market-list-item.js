@@ -49,7 +49,38 @@ class MarketListItem extends Component {
     this.state = {
     };
   }
-
+  // 处理时间
+  formateDate(val, format, separators) {
+    function addZero(num) {
+      return num < 10 ? `0${num}` : num;
+    }
+    if (val) {
+      const d = new Date(val);
+      const sptors = separators || '-';
+      let dformat;
+      switch (format) {
+        case 'yyyy':
+          dformat = d.getFullYear();
+          break;
+        case 'yyyy-MM':
+          dformat = [d.getFullYear(), addZero(d.getMonth() + 1)].join(sptors);
+          break;
+        case 'yyyy-MM-dd':
+          dformat = [d.getFullYear(), addZero(d.getMonth() + 1), addZero(d.getDate())].join(sptors);
+          break;
+        case 'hh-mm':
+          dformat = [addZero(d.getHours()), addZero(d.getMinutes())].join(sptors);
+          break;
+        case 'hh-mm-ss':
+          dformat = [addZero(d.getHours()), addZero(d.getMinutes()), addZero(d.getSeconds())].join(sptors);
+          break;
+        default:
+          dformat = [d.getFullYear(), addZero(d.getMonth() + 1), addZero(d.getDate())].join(sptors);
+      }
+      return dformat;
+    }
+    return '--';
+  }
   render() {
     return (
       <View style = {styles.container}>
@@ -60,9 +91,9 @@ class MarketListItem extends Component {
           ></Image>
         </View>
         <View style={styles.rightWarp} >
-          <Text>{this.props.item.carName}</Text>
-          <Text>{this.props.item.manufactureDate + '|' + this.props.item.score + '万公里' }</Text>
-          <Text>当前{this.props.item.bidMaxPrice}万元</Text>
+          <Text style={{fontSize: 14, color: '#242527'}} >{this.props.item.carName}</Text>
+          <Text style={{fontSize: 11, color: '#757E8B'}} >{this.formateDate(this.props.item.manufactureDate) + ' | ' + this.props.item.score + '万公里' }</Text>
+          <Text style={{fontSize: 11, color: '#757E8B'}} >当前<Text style={{fontSize: 14, color: '#F7634F'}} >{this.props.item.bidMaxPrice}</Text>万元</Text>
         </View>
       </View>
     );
@@ -91,6 +122,7 @@ const styles = StyleSheet.create({
   },
   leftWarp: {
     width: 108,
+    marginRight: 8,
   },
   rightWarp: {
     flex: 1,
