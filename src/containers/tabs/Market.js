@@ -352,8 +352,16 @@ class Market extends Component {
     super(props);
     this.state = {
       paused: true,
-      url: DEFAULT_URL
+      refreshState: false,
     };
+    this.refreshData = this.refreshData.bind(this);
+  }
+
+  refreshData() {
+    this.setState({refreshState: true});
+    setTimeout(() => {
+      this.setState({refreshState: false});
+    }, 1000);
   }
 
   render() {
@@ -362,6 +370,8 @@ class Market extends Component {
       <View style = {styles.container}>
         <FlatList
           data={demoData}
+          onRefresh={this.refreshData}
+          refreshing={this.state.refreshState}
           renderItem={({item}) => <MarketListItem item={item}></MarketListItem>}
         />
       </View>
