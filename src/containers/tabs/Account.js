@@ -28,7 +28,7 @@ class Account extends Component {
           type: 'routeInput',
           iconSource: '',
           label: '意见反馈',
-          onNext: this.goPage.bind(this, 'Login')
+          onNext: this.goPage.bind(this, 'Opinion')
         },
         setting: {
           type: 'routeInput',

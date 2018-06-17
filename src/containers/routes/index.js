@@ -5,11 +5,13 @@ import TabRoutes from './tabRoutes';
 
 import Login from '../other/Login';
 import Setting from '../other/Setting';
+import Opinion from '../other/Opinion';
 
 const AllRoutes = createStackNavigator({
-  Tabs: TabRoutes,
-  Login: Login,
-  Setting: Setting
+    Tabs: TabRoutes,
+    Login: Login,
+    Setting: Setting,
+    Opinion: Opinion
 }, {
   mode: 'card',
   headerMode: 'screen',
