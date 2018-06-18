@@ -1,11 +1,11 @@
-
 import {connect} from 'react-redux';
-import React, {Component} from 'react';
+import React, {Component } from 'react';
 import {
     View,
     StyleSheet,
     Text,
     TextInput,
+    TouchableOpacity,
     Platform,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -13,14 +13,27 @@ import FormatText from '../../components/format-text';
 
 //自定义 button 组件
 import CustomButton from './CustomButton'
-
+//自定义 actionSheet 组件
+import CustomActionSheet from './CustomActionSheet'
 class Account extends Component {
     constructor(props, context) {
         super(props);
         this.state = {
             text: '',
             click: false,
+            isModal:false, //控制 Modal
+            defaultItem:'产品建议',
+            items:['产品建议','程序错误','其他'],
         };
+    }
+    showModal() {
+            this.showActionSheet.showModal();
+    }
+    //回传的值
+    popBack(rowdata) {
+        //我们在父组件中实现的方法，rowdata是我们的子组件传递过来的数据。
+        //alert(rowdata);
+        this.setState({defaultItem:rowdata })
     }
 
     static navigationOptions = () => ({title: "意见反馈"});
@@ -38,10 +51,16 @@ class Account extends Component {
             alert("alertMsginInfo");
         };
         return (
-            <View>
+            <View style={styles.container}>
                 <View style={styles.textViewStyle}>
                     <Text style={{lineHeight: 44, paddingLeft: 10}}>反馈类型
                     </Text>
+                    <TouchableOpacity
+                        style={styles.touchStyle}
+                        onPress={() => this.showModal()}
+                    >
+                        <Text style={{lineHeight: 44}}>{this.state.defaultItem} ></Text>
+                    </TouchableOpacity>
                 </View>
                 <Text style={styles.titleStyle}>详细描述您的建议(必填)</Text>
                 <TextInput
@@ -60,6 +79,13 @@ class Account extends Component {
                     buttonStyle={styles.commitStyle}
                     tex
                     onPress={this.alertMsg}/>
+                <CustomActionSheet
+                    items={this.state.items}
+                    ref={showActionSheet => this.showActionSheet = showActionSheet}
+                    callBackFunc={(rowdata)=>{this.popBack(rowdata)}}
+                ></CustomActionSheet>
+
+
             </View>
         );
     }
@@ -80,6 +106,15 @@ function mapDispatchToProps(dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(Account);
 
 const styles = StyleSheet.create({
+    container: Platform.select({
+        ios: {
+            flex:1,
+
+
+        },
+        android: {}
+    }),
+
     scrollView: Platform.select({
         ios: {
             backgroundColor: '#f5f5f5'
@@ -96,7 +131,16 @@ const styles = StyleSheet.create({
     textViewStyle: Platform.select({
         ios: {
             height: 44,
-            backgroundColor: '#ffffff'
+            backgroundColor: '#ffffff',
+            flexDirection:'row',
+            justifyContent:'space-between'
+        },
+        android: {}
+    }),
+    touchStyle: Platform.select({
+        ios: {
+            marginRight:20,
+
         },
         android: {}
     }),
@@ -115,7 +159,7 @@ const styles = StyleSheet.create({
             marginRight: 10,
             marginTop: -20,
             textAlign: 'right',//文字靠右
-            color:'#E0E0E0'
+            color: '#E0E0E0'
         },
         android: {}
     }),

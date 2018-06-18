@@ -11,7 +11,7 @@ import {
     TouchableOpacity,
 } from 'react-native'
 
-export default class CustomButton extends Component {
+class CustomButton extends Component {
     //使用时：enable是必须存在的
     static propTypes = {
         enable: PropTypes.bool.isRequired
@@ -74,3 +74,5 @@ const styles = StyleSheet.create({
         backgroundColor: '#B8B8B8',
     }
 });
+
+export default CustomButton;

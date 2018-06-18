@@ -25,7 +25,7 @@ class Account extends Component {
           contentContainerStyle={styles.scrollViewContainer}
           automaticallyAdjustContentInsets={false}
         >
-          <FormatText style={{ color: '#fe6946', fontSize: 15 }}>设111置</FormatText>
+          <FormatText style={{ color: '#fe6946', fontSize: 15 }}>设置</FormatText>
         </ScrollView>
       </View>
     );
