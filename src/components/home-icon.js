@@ -4,6 +4,7 @@ import {
   View,
   Text,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 
@@ -33,7 +34,7 @@ class IconItem extends Component {
     return (
       <View style = {[styles.container, this.props.index===0?{backgroundColor: '#2784E2'}:{}]}>
         {
-          this.props.data.map((item) => <Item data={item} ></Item>)
+          this.props.data.map((item) => <TouchableOpacity style = {styles.item} onPress={this.props.homeIconPress.bind(this, item)}><Item data={item} ></Item></TouchableOpacity>)
         }
       </View>
     );

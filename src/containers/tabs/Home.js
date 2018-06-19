@@ -9,6 +9,7 @@ import {
   Text,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from 'react-native';
 import HomeIcon from '../../components/home-icon'
 
@@ -38,6 +39,8 @@ const iconData = [
 class Home extends Component {
   constructor(props, context) {
     super(props);
+    this.onButtonPress = this.onButtonPress.bind(this);
+    // this.onHomeIconPress = this.onHomeIconPress.bind(this);
   }
 
   render() {
@@ -47,7 +50,7 @@ class Home extends Component {
           <Text>Check for updates</Text>
         </TouchableOpacity> */}
         {
-          iconData.map((items, index) => <HomeIcon index={index} data={items} ></HomeIcon>)
+          iconData.map((items, index) => <HomeIcon homeIconPress={this.onHomeIconPress} index={index} data={items} ></HomeIcon>)
         }
       </ScrollView>
     );
@@ -57,6 +60,19 @@ class Home extends Component {
         updateDialog: true,
         installMode: codePush.InstallMode.IMMEDIATE
     });
+  }
+  onHomeIconPress(item) {
+    Alert.alert(
+      // 'Alert Title',
+      item.title,
+      item.title,
+      [
+        // {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+        // {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+        {text: '确定', onPress: () => console.log('OK Pressed')},
+      ],
+      // { cancelable: false }
+    )
   }
 }
 
