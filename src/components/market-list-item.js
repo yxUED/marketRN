@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Dimensions,
   StyleSheet,
-  WebView,
   View,
-  FlatList,
   Text,
   Image,
 } from 'react-native';
