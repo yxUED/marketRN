@@ -7,25 +7,31 @@ import Login from '../other/Login';
 import Setting from '../other/Setting';
 import Opinion from '../other/Opinion';
 
+import AssessList from '../other/dealer/assess/AssessList'
+
 const AllRoutes = createStackNavigator({
     Tabs: TabRoutes,
     Login: Login,
     Setting: Setting,
-    Opinion: Opinion
+    Opinion: Opinion,
+    AssessList: AssessList,
 }, {
   mode: 'card',
   headerMode: 'screen',
   navigationOptions: {
-    headerBackTitle: '返回',
+    headerBackTitle: ' ',
     headerStyle: {
-      backgroundColor: '#2784E2'
+      backgroundColor: '#2784E2',
+      elevation: 0,
+      shadowOpacity: 0
     },
     headerTitleStyle: {
       color: 'white'
     },
     headerBackTitleStyle: {
       color: 'white'
-    }
+    },
+    headerTintColor: 'white',
   },
 });
 

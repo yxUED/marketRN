@@ -20,7 +20,7 @@ const iconData = [
     { title: '长时拍', icon: require('../../img/homeIcon/long.png')},
   ],
   [
-      { title: '评估管理', icon: require('../../img/homeIcon/icon_assess.png')},
+      { title: '评估管理', page: 'AssessList', icon: require('../../img/homeIcon/icon_assess.png')},
       { title: '库存管理', icon: require('../../img/homeIcon/icon_store.png')},
       { title: '客户管理', icon: require('../../img/homeIcon/icon_client.png')},
   ],
@@ -40,7 +40,7 @@ class Home extends Component {
   constructor(props, context) {
     super(props);
     this.onButtonPress = this.onButtonPress.bind(this);
-    // this.onHomeIconPress = this.onHomeIconPress.bind(this);
+    this.onHomeIconPress = this.onHomeIconPress.bind(this);
   }
 
   render() {
@@ -62,6 +62,11 @@ class Home extends Component {
     });
   }
   onHomeIconPress(item) {
+    if (item.page) {
+      this.props.navigation.navigate(item.page, { title: item.title})
+      return;
+    }
+
     Alert.alert(
       // 'Alert Title',
       item.title,
