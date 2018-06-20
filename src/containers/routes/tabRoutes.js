@@ -65,7 +65,7 @@ const Tabs = createBottomTabNavigator({
     },
     style: {
       backgroundColor: '#ffffff',
-      height: 60
+      height: 49
     },
   }
 });
