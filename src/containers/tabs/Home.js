@@ -48,25 +48,11 @@ class Home extends Component {
       <ScrollView style={styles.container} >
         {/* <TouchableOpacity onPress={this.onButtonPress}>
           <Text>Check for updates</Text>
-<<<<<<< Updated upstream
         </TouchableOpacity> */}
         {
           iconData.map((items, index) => <HomeIcon homeIconPress={this.onHomeIconPress} index={index} data={items} ></HomeIcon>)
         }
       </ScrollView>
-=======
-        </TouchableOpacity>
-        <Text>没有！ again</Text>
-        <WebView
-          ref={(webview) => { this.webview = webview; }}
-          style={{
-            width: Dimensions.get('window').width,
-            height: 6000
-          }}
-          source={{ uri: 'https://reactnative.cn/' }}
-        />
-      </View>
->>>>>>> Stashed changes
     );
   }
   onButtonPress() {
