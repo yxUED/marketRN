@@ -58,7 +58,8 @@ class Home extends Component {
   onButtonPress() {
     codePush.sync({
         updateDialog: true,
-        installMode: codePush.InstallMode.IMMEDIATE
+        installMode: codePush.InstallMode.IMMEDIATE,
+        deploymentKey: 'fY3hyt6uyEct4XazZ3dFXdv4twVY4ksvOXqog'
     });
   }
   onHomeIconPress(item) {
